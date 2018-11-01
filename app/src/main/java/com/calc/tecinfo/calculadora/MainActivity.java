@@ -182,9 +182,34 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (dConta.getText().equals("")) {
                     Toast.makeText(getApplicationContext(), "Digite um número!", Toast.LENGTH_LONG).show();
+                } else {
+//                    operacao = "=";
+                    valor2 = Double.parseDouble(dConta.getText().toString());
+                    dConta.setText("");
+                    String resultado = calcular(valor1, valor2, operacao);
+                    dResult.setText(resultado);
                 }
             }
         });
 
     }
+
+    public String calcular(Double valor1, Double valor2, String operacao) {
+        Double resultado = 0.0;
+        if (operacao.equals("+")) {
+            resultado = valor1 + valor2;
+        } else if (operacao.equals("-")) {
+            resultado = valor1 - valor2;
+        } else if (operacao.equals("*")) {
+            resultado = valor1 * valor2;
+        } else if (operacao.equals("/")) {
+            if (valor2 == 0){
+                Toast.makeText(getApplicationContext(), "Não é possível dividir por 0!", Toast.LENGTH_LONG).show();
+            } else {
+                resultado = valor1 / valor2;
+            }
+        }
+        return resultado.toString();
+    }
+
 }
