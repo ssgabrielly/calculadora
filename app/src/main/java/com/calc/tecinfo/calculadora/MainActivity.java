@@ -181,7 +181,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (dConta.getText().equals("")) {
-                    Toast.makeText(getApplicationContext(), "Digite um número!", Toast.LENGTH_LONG).show());
+                    Toast.makeText(getApplicationContext(), "Digite um número!", Toast.LENGTH_LONG).show();
                 }
             }
         });
